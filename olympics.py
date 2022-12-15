@@ -79,7 +79,7 @@ def total(table_totals, send_year = None):
             elif list_medalists[i][1] == 'Gold':
                 dict_countries[list_medalists[i][0]]['gold'] += 1
         if len(list_medalists) == 0:
-            print("В цьому році не проводилася олімпіада!")
+            print("There was no olympics during this year.")
         else:
             for i in range(len(list_countries)):
                 result.append(
