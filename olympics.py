@@ -4,7 +4,7 @@ interactive = False
 def medals(table_medalists, send_country = None, send_year = None):
     if len(sys.argv) >= 5 or interactive:
         list_medalists = []
-        medals_amount = {'bronze': 0, 'silver': 0, 'gold': 0}
+        medals_amount = {'gold': 0, 'silver': 0, 'bronze': 0}
         if not interactive:
             country = sys.argv[3]
             year = sys.argv[4]
