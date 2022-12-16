@@ -20,12 +20,12 @@ def medals(table_medalists, send_country = None, send_year = None):
             if country == player[6] or country == player[7]:
                 if year == player[9] and player[-1] != 'NA':
                     list_medalists.append(player[1] + ' - ' + player[-3] + ' - ' + player[-1])
-                    if player[-1] == 'Bronze':
-                        medals_amount['bronze'] += 1
+                    if player[-1] == 'Gold':
+                        medals_amount['gold'] += 1
                     elif player[-1] == 'Silver':
                         medals_amount['silver'] += 1
-                    elif player[-1] == 'Gold':
-                        medals_amount['gold'] += 1
+                    elif player[-1] == 'Bronze':
+                        medals_amount['bronze'] += 1
                 else:
                     year_existence += 1
             else:
