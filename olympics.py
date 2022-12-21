@@ -11,11 +11,6 @@ parser.add_argument('-overall', nargs='+')
 args = parser.parse_args()
 
 
-#
-# if args.output is not None:
-#     args.output.writelines(f'{store[1]}\n')
-
-import sys
 
 interactive = False
 def medals(table_medalists, send_country = None, send_year = None):
@@ -108,7 +103,7 @@ def output(medalist_list, outfile):
         for player in medalist_list:
             file.write(player + '\n')
 
-#6 Team, 9 Year, 14 medal
+
 def overall(info, countries):
     l_results = []
     for team in countries:
@@ -220,36 +215,36 @@ with args.infile as file:
             output(overall_list, args.output)
 
 
-    elif sys.argv[2] == '-interactive':
-        interactive = True
-        while True:
-            command = input('Enter command: ')
-            args = command.split(" ")
-            if args[0] == '-medals':
-                result_players = medals(lines, args[1], args[2])
-                if args[-2] == '-output':
-                    output(result_players, args[-1])
-
-            elif args[0] == '-overall':
-                if '-output' in args:
-                    countries = args[1: args.index('-output')]
-                else:
-                    countries = args[1:]
-
-                overall_list = overall(lines, countries)
-                if '-output' in args:
-                    output(overall_list, args[-1])
-            elif args[0] == '-total':
-                result_country = total(lines, args[1])
-                if args[-2] == '-output':
-                    output(result_country, args[-1])
-            else:
-                if '-output' in command:
-                    stat_res = country_statistic(lines, command.split(" ")[0])
-                    if args[-2] == '-output':
-                        output(stat_res, args[-1])
-                else:
-                     country_statistic(lines, command)
+    # elif sys.argv[2] == '-interactive':
+    #     interactive = True
+    #     while True:
+    #         command = input('Enter command: ')
+    #         args = command.split(" ")
+    #         if args[0] == '-medals':
+    #             result_players = medals(lines, args[1], args[2])
+    #             if args[-2] == '-output':
+    #                 output(result_players, args[-1])
+    #
+    #         elif args[0] == '-overall':
+    #             if '-output' in args:
+    #                 countries = args[1: args.index('-output')]
+    #             else:
+    #                 countries = args[1:]
+    #
+    #             overall_list = overall(lines, countries)
+    #             if '-output' in args:
+    #                 output(overall_list, args[-1])
+    #         elif args[0] == '-total':
+    #             result_country = total(lines, args[1])
+    #             if args[-2] == '-output':
+    #                 output(result_country, args[-1])
+    #         else:
+    #             if '-output' in command:
+    #                 stat_res = country_statistic(lines, command.split(" ")[0])
+    #                 if args[-2] == '-output':
+    #                     output(stat_res, args[-1])
+    #             else:
+    #                  country_statistic(lines, command)
 
     elif args.total != None:
         result_country = total(lines)
